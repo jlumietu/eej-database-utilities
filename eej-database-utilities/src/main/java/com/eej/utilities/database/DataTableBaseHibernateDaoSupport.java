@@ -28,7 +28,7 @@ import com.eej.utilities.database.generators.TypeRestrictionGeneratorFactory;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 public abstract class DataTableBaseHibernateDaoSupport extends

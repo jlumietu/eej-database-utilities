@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import com.eej.utilities.database.generators.TypeRestrictionGenerator;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 public class MySqlDateTimeTypeRestrictionGenerator extends

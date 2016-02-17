@@ -4,7 +4,7 @@
 package com.eej.utilities.database.test;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 public class TestObject {

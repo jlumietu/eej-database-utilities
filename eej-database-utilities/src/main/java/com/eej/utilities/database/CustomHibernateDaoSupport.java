@@ -6,7 +6,7 @@ package com.eej.utilities.database;
 import org.hibernate.SessionFactory;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 public abstract class CustomHibernateDaoSupport extends DataTableBaseHibernateDaoSupport {

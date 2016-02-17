@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)

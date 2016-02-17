@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 public class Test {

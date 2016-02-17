@@ -14,7 +14,7 @@ import org.hibernate.criterion.Restrictions;
 import com.eej.utilities.database.generators.TypeRestrictionGenerator;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu
  *
  */
 public class IntegerEqualTypeRestrictionGenerator implements TypeRestrictionGenerator{

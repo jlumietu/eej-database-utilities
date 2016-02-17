@@ -10,7 +10,7 @@ import com.eej.utilities.datatables.SourceData;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 /**
- * @author doibalmi
+ * @author jlumietu
  *
  */
 public interface GenericDao extends SourceData{

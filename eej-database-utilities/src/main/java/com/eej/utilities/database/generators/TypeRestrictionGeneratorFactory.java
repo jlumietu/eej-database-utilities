@@ -6,7 +6,7 @@ package com.eej.utilities.database.generators;
 import java.util.Map;
 
 /**
- * @author doibalmi
+ * @author jlumietu
  *
  */
 public class TypeRestrictionGeneratorFactory {

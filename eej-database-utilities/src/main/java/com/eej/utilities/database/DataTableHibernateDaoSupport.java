@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
- * @author doibalmi
+ * @author jlumietu
  *
  */
 public class DataTableHibernateDaoSupport extends DataTableBaseHibernateDaoSupport {

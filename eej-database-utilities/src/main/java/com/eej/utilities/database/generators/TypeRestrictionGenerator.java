@@ -6,7 +6,7 @@ import org.hibernate.criterion.Criterion;
 
 /**
  * 
- * @author doibalmi
+ * @author jlumietu
  *
  */
 public interface TypeRestrictionGenerator {
