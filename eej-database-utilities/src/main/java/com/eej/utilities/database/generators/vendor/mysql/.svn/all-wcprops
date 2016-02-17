@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/268/trunk/eej-database-utilities/src/main/java/com/eej/utilities/database/generators/vendor/mysql
+END
+MySqlDateTimeTypeRestrictionGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/!svn/ver/332/trunk/eej-database-utilities/src/main/java/com/eej/utilities/database/generators/vendor/mysql/MySqlDateTimeTypeRestrictionGenerator.java
+END
+MySqlDateTypeRestrictionGenerator.java
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/!svn/ver/332/trunk/eej-database-utilities/src/main/java/com/eej/utilities/database/generators/vendor/mysql/MySqlDateTypeRestrictionGenerator.java
+END
