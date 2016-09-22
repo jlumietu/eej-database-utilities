@@ -1,34 +1,0 @@
-10
-
-dir
-268
-https://my-first-eej-demo.googlecode.com/svn/trunk/eej-database-utilities/src/test
-https://my-first-eej-demo.googlecode.com/svn
-
-
-
-2014-11-14T10:25:09.349984Z
-268
-jlumietu@gmail.com
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-465c6ec6-8ad8-c73f-d80f-0fbc7dff1460
-
-java
-dir
-
-resources
-dir
-
