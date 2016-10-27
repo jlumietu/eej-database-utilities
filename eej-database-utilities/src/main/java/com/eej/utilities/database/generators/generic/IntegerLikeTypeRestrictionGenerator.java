@@ -18,8 +18,8 @@ import com.eej.utilities.database.generators.TypeRestrictionGenerator;
  * @author jlumietu
  *
  */
-public class IntegerEqualTypeRestrictionGenerator implements TypeRestrictionGenerator{
-	
+public class IntegerLikeTypeRestrictionGenerator implements TypeRestrictionGenerator {
+
 	private Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
@@ -33,16 +33,13 @@ public class IntegerEqualTypeRestrictionGenerator implements TypeRestrictionGene
 		Criterion criterion = null;
 		Field pojoClassField = criteriaRootClass.getDeclaredField(columnSearchableAnnotatedColumn); 
 		if(pojoClassField != null && (pojoClassField.isAnnotationPresent(Column.class) || pojoClassField.isAnnotationPresent(Id.class))){
-			boolean matches = false;
-			boolean state = false;
 			try{
-				criterion = Restrictions.eq(pojoClassField.getName(), Integer.parseInt(filter));
+				criterion = Restrictions.like(pojoClassField.getName(), filter  + "%");
 			}catch(Throwable t){
 				logger.error("Error converting Integer value: " + t.getMessage(), t);
 			}
 		}
 		return criterion;
 	}
-	
 
 }

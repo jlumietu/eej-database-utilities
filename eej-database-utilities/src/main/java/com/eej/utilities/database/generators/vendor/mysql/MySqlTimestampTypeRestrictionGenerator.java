@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.eej.utilities.database.generators.generic;
+package com.eej.utilities.database.generators.vendor.mysql;
 
 import java.lang.reflect.Field;
 
@@ -18,31 +18,25 @@ import com.eej.utilities.database.generators.TypeRestrictionGenerator;
  * @author jlumietu
  *
  */
-public class IntegerEqualTypeRestrictionGenerator implements TypeRestrictionGenerator{
+public class MySqlTimestampTypeRestrictionGenerator implements TypeRestrictionGenerator{
 	
-	private Logger logger = Logger.getLogger(this.getClass());
+	private Logger logger = Logger.getLogger(this.getClass()); 
 
 	@Override
-	public Criterion generateCriterion(Field theField,
-			String columnSearchableAnnotatedColumn, Class<?> criteriaRootClass,
-			String filter) throws NoSuchFieldException {
-		logger.debug("columnSearchableAnnotatedColumn = " + columnSearchableAnnotatedColumn);
-		logger.debug("theField = " + theField);
-		logger.debug("criteriaRootClass = " + criteriaRootClass);
-		logger.debug("filter = " + filter);
+	public Criterion generateCriterion(Field theField, String columnSearchableAnnotatedColumn,
+			Class<?> criteriaRootClass, String filter) throws NoSuchFieldException {
 		Criterion criterion = null;
+		logger.debug("columnSearchableAnnotatedColumn " + columnSearchableAnnotatedColumn);
+		logger.debug("value " + filter );
 		Field pojoClassField = criteriaRootClass.getDeclaredField(columnSearchableAnnotatedColumn); 
 		if(pojoClassField != null && (pojoClassField.isAnnotationPresent(Column.class) || pojoClassField.isAnnotationPresent(Id.class))){
-			boolean matches = false;
-			boolean state = false;
 			try{
-				criterion = Restrictions.eq(pojoClassField.getName(), Integer.parseInt(filter));
+				criterion = Restrictions.like(pojoClassField.getName(), filter + "%");
 			}catch(Throwable t){
 				logger.error("Error converting Integer value: " + t.getMessage(), t);
 			}
 		}
 		return criterion;
 	}
-	
 
 }
