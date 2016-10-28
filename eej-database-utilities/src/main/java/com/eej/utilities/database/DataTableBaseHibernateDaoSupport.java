@@ -5,13 +5,12 @@ package com.eej.utilities.database;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Id;
 
 import org.hibernate.Criteria;
@@ -180,6 +179,9 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 				columnId = f.getName();
 				return this.getListViewCount(request, clazz, columnId);
 			}
+			if(f.isAnnotationPresent(EmbeddedId.class)){
+				return this.getListViewCount(request, clazz, null);
+			}
 		}
 		return 0;
 	}
@@ -195,10 +197,15 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 			Class<? extends Serializable> clazz, String countDistinctParam){
 		Criteria criteria = this.getSessionFactory().getCurrentSession().createCriteria(clazz);
 		try{
-			criteria.setProjection(
+			if(countDistinctParam != null){
+				criteria.setProjection(
 					Projections.countDistinct(countDistinctParam)
-					);
-	
+				);
+			}else{
+				criteria.setProjection(
+					Projections.rowCount()
+				);
+			}
 			this.applyPaginationRequestFilters(criteria, request, clazz, false, clazz);
 	
 			int numeroRegistros = ((Long)criteria.uniqueResult()).intValue();
