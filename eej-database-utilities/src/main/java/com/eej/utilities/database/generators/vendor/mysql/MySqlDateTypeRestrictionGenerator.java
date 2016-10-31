@@ -39,23 +39,31 @@ public class MySqlDateTypeRestrictionGenerator implements TypeRestrictionGenerat
 			/*if(splitted.getDay()!=null){
 				criteria.add(Restrictions.eq(propertyName, value))
 			}*/
-			criterion = Restrictions.sqlRestriction(
-							"DATE_FORMAT(" + dataBaseFieldName + " , '" 
-							+ this.getNativeDatabaseConversionPattern(dtc.dateConversionPattern()) + "') like '" 
-							+ filter + "%'"
+			criterion = this.generateRestriction(
+								dataBaseFieldName,
+								dtc.dateConversionPattern(),
+								filter
 						);
 				
 		}
 		return criterion;
 	}
 	
+	protected Criterion generateRestriction(String dataBaseFieldName, String conversionPattern, String filter) {
+		return Restrictions.sqlRestriction(
+				"DATE_FORMAT(" + dataBaseFieldName + " , '" 
+				+ this.getNativeDatabaseConversionPattern(conversionPattern) + "') like '" 
+				+ filter + "%'"
+			);
+	}
+
 	/**
 	 * 
 	 * @param filterDate
 	 * @param dateConversionPattern
 	 * @return
 	 */
-	private SplittedStringDate splitStringDate(String filterDate,
+	protected SplittedStringDate splitStringDate(String filterDate,
 			String dateConversionPattern) {
 		SplittedStringDate ssp = new SplittedStringDate();
 		String breakChar = "/";

@@ -23,8 +23,10 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.eej.utilities.annotation.DataTable;
 import com.eej.utilities.annotation.DataTableColumn;
+import com.eej.utilities.annotation.DataTableRowOwnerId;
 import com.eej.utilities.database.generators.TypeRestrictionGeneratorFactory;
 import com.eej.utilities.model.DataTablePaginationRequest;
+import com.erax.principal.PrincipalSerializableIdLocator;
 
 /**
  * @author jlumietu
@@ -34,6 +36,8 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 		HibernateDaoSupport {
 	
 	private TypeRestrictionGeneratorFactory typeRestrictionGeneratorFactory;
+	
+	private PrincipalSerializableIdLocator principalSerializableIdLocator = null;
 	
 	/**
 	 * @return the typeRestrictionGeneratorFactory
@@ -87,6 +91,18 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 							applyOrdenation = true;
 							colOrderBy = f.getName();
 						}
+					}
+				}
+				if(f.isAnnotationPresent(DataTableRowOwnerId.class)){
+					if(this.principalSerializableIdLocator == null){
+						logger.warn("DataTableRowOwnerId annotation found but no " + PrincipalSerializableIdLocator.class + " found for dependency");
+					}else{
+						criteria.add(
+								Restrictions.eq(
+										f.getName(), 
+										this.principalSerializableIdLocator.findPrincipalSerializableId().getId()
+									)
+								);
 					}
 				}
 			}
@@ -318,5 +334,15 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 		return Restrictions.ilike(columnSearchableAnnotatedColumn, filter + "%");
 		
 	}
+
+	public PrincipalSerializableIdLocator getPrincipalSerializableIdLocator() {
+		return principalSerializableIdLocator;
+	}
+
+	public void setPrincipalSerializableIdLocator(PrincipalSerializableIdLocator principalSerializableIdLocator) {
+		this.principalSerializableIdLocator = principalSerializableIdLocator;
+	}
+	
+	
 
 }
