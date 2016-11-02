@@ -342,7 +342,5 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 	public void setPrincipalSerializableIdLocator(PrincipalSerializableIdLocator principalSerializableIdLocator) {
 		this.principalSerializableIdLocator = principalSerializableIdLocator;
 	}
-	
-	
 
 }
