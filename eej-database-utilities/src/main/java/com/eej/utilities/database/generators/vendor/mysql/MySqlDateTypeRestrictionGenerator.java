@@ -14,7 +14,7 @@ import com.eej.utilities.model.SplittedStringDate;
 
 /**
  * 
- * @author jlumietu
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public class MySqlDateTypeRestrictionGenerator implements TypeRestrictionGenerator{

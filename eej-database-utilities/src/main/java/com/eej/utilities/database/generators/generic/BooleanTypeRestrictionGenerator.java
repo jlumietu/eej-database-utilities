@@ -14,7 +14,7 @@ import org.hibernate.criterion.Restrictions;
 import com.eej.utilities.database.generators.TypeRestrictionGenerator;
 
 /**
- * @author jlumietu
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public class BooleanTypeRestrictionGenerator implements TypeRestrictionGenerator{

@@ -29,7 +29,7 @@ import com.eej.utilities.model.DataTablePaginationRequest;
 import com.erax.principal.PrincipalSerializableIdLocator;
 
 /**
- * @author jlumietu
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public abstract class DataTableBaseHibernateDaoSupport extends
