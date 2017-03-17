@@ -97,10 +97,14 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 					if(this.principalSerializableIdLocator == null){
 						logger.warn("DataTableRowOwnerId annotation found but no " + PrincipalSerializableIdLocator.class + " found for dependency");
 					}else{
+						Class<?> fClazzType = f.getType();
 						criteria.add(
 								Restrictions.eq(
 										f.getName(), 
-										this.principalSerializableIdLocator.findPrincipalSerializableId().getId()
+										(fClazzType.isAssignableFrom(String.class)?
+												this.principalSerializableIdLocator.findPrincipalSerializableId().getId().toString():
+												fClazzType.cast(this.principalSerializableIdLocator.findPrincipalSerializableId().getId())
+										)
 									)
 								);
 					}
