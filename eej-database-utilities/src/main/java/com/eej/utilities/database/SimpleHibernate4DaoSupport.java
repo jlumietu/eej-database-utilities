@@ -16,7 +16,7 @@ import com.eej.utilities.model.DataTablePaginationRequest;
  * @author DOIBALMI
  *
  */
-public abstract class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine {
+public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine {
 
 	private PaginationRequestFilterCriteriaHelper paginationRequestFilterCriteriaHelper;
 

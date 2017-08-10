@@ -13,7 +13,7 @@ import com.eej.utilities.database.PaginationRequestFilterCriteriaHelper;
 import com.eej.utilities.database.SimpleHibernateDaoSupportEngine;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
-public abstract class SimpleHibernateDaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine{
+public class SimpleHibernateDaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine{
 	
 	private PaginationRequestFilterCriteriaHelper paginationRequestFilterCriteriaHelper;
 	

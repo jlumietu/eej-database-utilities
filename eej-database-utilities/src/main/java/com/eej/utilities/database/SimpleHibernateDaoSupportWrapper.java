@@ -14,7 +14,7 @@ import com.eej.utilities.model.DataTablePaginationRequest;
  * @author DOIBALMI
  *
  */
-public class SimpleHibernateDaoSupportWrapper implements SimpleHibernateDaoSupportSpec {
+public abstract class SimpleHibernateDaoSupportWrapper implements SimpleHibernateDaoSupportSpec {
 	
 	private SimpleHibernateDaoSupportEngine simpleHibernateDaoSupport;
 	
