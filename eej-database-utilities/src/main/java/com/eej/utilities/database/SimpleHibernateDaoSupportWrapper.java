@@ -58,7 +58,9 @@ public abstract class SimpleHibernateDaoSupportWrapper implements SimpleHibernat
 	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#setSessionFactory(org.hibernate.SessionFactory)
 	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
-		simpleHibernateDaoSupport.setSessionFactory(sessionFactory);
+		if(this.simpleHibernateDaoSupport != null){
+			simpleHibernateDaoSupport.setSessionFactory(sessionFactory);
+		}
 	}
 
 	/* (non-Javadoc)
