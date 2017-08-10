@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.eej.utilities</groupId>
   <artifactId>eej-database-utilities</artifactId>
-  <version>0.0.5-RELEASE</version>
+  <version>0.0.6-SNAPSHOT</version>
   <name>Eej Database Utilities</name>
   <properties>
   	<java-version>1.6</java-version>

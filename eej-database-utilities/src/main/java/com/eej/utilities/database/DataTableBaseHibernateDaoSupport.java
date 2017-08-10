@@ -13,13 +13,13 @@ import java.util.TreeMap;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Id;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.eej.utilities.annotation.DataTable;
 import com.eej.utilities.annotation.DataTableColumn;
@@ -33,7 +33,9 @@ import com.erax.principal.PrincipalSerializableIdLocator;
  *
  */
 public abstract class DataTableBaseHibernateDaoSupport extends
-		HibernateDaoSupport {
+		SimpleHibernateDaoSupportWrapper {
+	
+	private Logger logger = Logger.getLogger(this.getClass());
 	
 	private TypeRestrictionGeneratorFactory typeRestrictionGeneratorFactory;
 	
@@ -243,6 +245,7 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 	 * @param clazz
 	 * @return
 	 */
+	@SuppressWarnings("unchecked")
 	public List<? extends Serializable> getListView(
 			DataTablePaginationRequest request, 
 			Class<? extends Serializable> clazz){
@@ -262,7 +265,7 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 	            logger.debug("request.criteria.getFirstResult: " + firstResult);
 	            criteria.setMaxResults(request.getNumero());
 	        }
-			return criteria.list();
+			return (List<? extends Serializable>)criteria.list();
 		}catch(Throwable t){
 			logger.error("Error recovering rows: " + t.getMessage(), t);
 			return null;
@@ -291,6 +294,7 @@ public abstract class DataTableBaseHibernateDaoSupport extends
 			//logger.debug("f.getType==: " + (theField.getType() == Date.class));
 			//logger.debug("f.getType.equals: " + theField.getType().equals(Date.class));
 			for(String className: this.typeRestrictionGeneratorFactory.getRestrictionGenerators().keySet()){
+				@SuppressWarnings("rawtypes")
 				Class theClazz = Class.forName(className);
 				if(theField.getType().isAssignableFrom(theClazz)){
 					Criterion c = 
