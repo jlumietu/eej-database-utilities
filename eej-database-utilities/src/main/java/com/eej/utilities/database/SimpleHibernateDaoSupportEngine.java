@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public interface SimpleHibernateDaoSupportEngine extends SimpleHibernateDaoSupportSpec {

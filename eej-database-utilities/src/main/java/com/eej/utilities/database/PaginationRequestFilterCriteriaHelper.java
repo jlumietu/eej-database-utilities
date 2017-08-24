@@ -25,7 +25,7 @@ import com.eej.utilities.model.DataTablePaginationRequest;
 import com.eej.utilities.model.SplittedStringDate;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public class PaginationRequestFilterCriteriaHelper {

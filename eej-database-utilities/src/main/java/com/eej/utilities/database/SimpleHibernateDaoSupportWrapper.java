@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public abstract class SimpleHibernateDaoSupportWrapper implements SimpleHibernateDaoSupportSpec {

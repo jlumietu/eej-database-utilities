@@ -13,7 +13,7 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 /**
- * @author DOIBALMI
+ * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
 public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine {
