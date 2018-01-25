@@ -8,7 +8,7 @@ import java.io.Serializable;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.eej.utilities.model.DataTablePaginationRequest;
 
@@ -16,7 +16,7 @@ import com.eej.utilities.model.DataTablePaginationRequest;
  * @author jlumietu - Mikel Ibiricu Alfaro
  *
  */
-public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine {
+public class SimpleHibernate5DaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine {
 
 	private PaginationRequestFilterCriteriaHelper paginationRequestFilterCriteriaHelper;
 
@@ -47,7 +47,7 @@ public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements S
 	 */
 	@Override
 	public HibernateTemplate getHibernate3Template() {
-		throw new IllegalStateException("Using Hibernate 4 so no Hibernate3Template can be retrieved");
+		throw new IllegalStateException("Using Hibernate 5 so no Hibernate3Template can be retrieved");
 	}
 
 	/* (non-Javadoc)
@@ -55,12 +55,12 @@ public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements S
 	 */
 	@Override
 	public org.springframework.orm.hibernate4.HibernateTemplate getHibernate4Template() {
-		return this.getHibernateTemplate();
+		throw new IllegalStateException("Using Hibernate 5 so no Hibernate3Template can be retrieved");
 	}
 
 	@Override
 	public org.springframework.orm.hibernate5.HibernateTemplate getHibernate5Template() {
-		throw new IllegalStateException("Using Hibernate 4 so no Hibernate5Template can be retrieved");
+		return this.getHibernate5Template();
 	}	
 
 }

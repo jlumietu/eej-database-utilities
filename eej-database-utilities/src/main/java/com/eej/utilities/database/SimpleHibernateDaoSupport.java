@@ -77,6 +77,11 @@ public class SimpleHibernateDaoSupport extends HibernateDaoSupport implements Si
 	public org.springframework.orm.hibernate4.HibernateTemplate getHibernate4Template() {
 		throw new IllegalStateException("Using Hibernate 3 so no Hibernate4Template can be retrieved");
 	}
+
+	@Override
+	public org.springframework.orm.hibernate5.HibernateTemplate getHibernate5Template() {
+		throw new IllegalStateException("Using Hibernate 3 so no Hibernate5Template can be retrieved");
+	}
 	
 	
 }

@@ -6,7 +6,7 @@
   <name>Eej Database Utilities</name>
   <properties>
   	<java-version>1.6</java-version>
-  	<org.springframework-version>4.1.1.RELEASE</org.springframework-version>
+  	<org.springframework-version>4.3.14.RELEASE</org.springframework-version>
 	<org.hibernate-version>3.6.0.Final</org.hibernate-version>
   </properties>
   

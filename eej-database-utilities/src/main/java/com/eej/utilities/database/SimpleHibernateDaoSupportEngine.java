@@ -21,5 +21,7 @@ public interface SimpleHibernateDaoSupportEngine extends SimpleHibernateDaoSuppo
 	public abstract HibernateTemplate getHibernate3Template();
 	
 	public abstract org.springframework.orm.hibernate4.HibernateTemplate getHibernate4Template();
+	
+	public abstract org.springframework.orm.hibernate5.HibernateTemplate getHibernate5Template();
 
 }
