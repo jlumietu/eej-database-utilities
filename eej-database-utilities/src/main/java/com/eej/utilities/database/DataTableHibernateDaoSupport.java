@@ -7,8 +7,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-
-
 /**
  * @author jlumietu - Mikel Ibiricu Alfaro
  *

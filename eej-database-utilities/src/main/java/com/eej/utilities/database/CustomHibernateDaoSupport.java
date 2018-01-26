@@ -11,6 +11,7 @@ import org.hibernate.SessionFactory;
  */
 public abstract class CustomHibernateDaoSupport extends DataTableBaseHibernateDaoSupport {
 
+	@SuppressWarnings("unused")
 	private SessionFactory sessionFactory;
 
 	/**

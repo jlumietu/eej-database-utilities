@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 public interface SimpleHibernateDaoSupportSpec {
 
-	void anyMethodName(SessionFactory sessionFactory);
+	public abstract void anyMethodName(SessionFactory sessionFactory);
 
 	/**
 	 * 
@@ -20,7 +20,8 @@ public interface SimpleHibernateDaoSupportSpec {
 	 * @param applyOrder 
 	 * @return
 	 */
-	Criteria applyPaginationRequestFilters(Criteria criteria, DataTablePaginationRequest request, Class<?> clazz,
+	public abstract Criteria applyPaginationRequestFilters(Criteria criteria, DataTablePaginationRequest request, Class<?> clazz,
 			boolean applyOrder, Class<? extends Serializable> criteriaRootClass);
+	
 
 }
