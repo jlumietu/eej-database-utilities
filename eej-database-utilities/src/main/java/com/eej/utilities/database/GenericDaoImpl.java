@@ -6,6 +6,8 @@ package com.eej.utilities.database;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,15 @@ import com.eej.utilities.model.DataTablePaginationRequest;
 @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, readOnly = false)
 public class GenericDaoImpl extends DataTableHibernateDaoSupport implements
 		GenericDao {
+	
+	/* (non-Javadoc)
+	 * @see com.eej.utilities.database.DataTableHibernateDaoSupport#anyMethodName(org.hibernate.SessionFactory)
+	 */
+	@Override
+	@Autowired
+	public void anyMethodName(SessionFactory sessionFactory) {
+		super.anyMethodName(sessionFactory);
+	}
 
 	/* (non-Javadoc)
 	 * @see com.ib.utilities.database.DataTableHibernateDaoSupport#getListViewCount(com.ib.utilities.model.DataTablePaginationRequest, java.lang.Class)

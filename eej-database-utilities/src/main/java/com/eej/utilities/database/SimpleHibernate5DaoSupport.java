@@ -40,7 +40,7 @@ public class SimpleHibernate5DaoSupport extends HibernateDaoSupport implements S
 
 	@Override
 	public final int getCoreHibernateVersion() {
-		return 4;
+		return 5;
 	}
 
 	/* (non-Javadoc)
