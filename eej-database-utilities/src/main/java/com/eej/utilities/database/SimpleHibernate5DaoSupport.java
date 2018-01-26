@@ -62,7 +62,7 @@ public class SimpleHibernate5DaoSupport extends HibernateDaoSupport implements S
 
 	@Override
 	public org.springframework.orm.hibernate5.HibernateTemplate getHibernate5Template() {
-		return this.getHibernate5Template();
+		return this.getHibernateTemplate();
 	}
 
 	@Override
