@@ -19,6 +19,7 @@ import com.eej.utilities.database.generators.TypeRestrictionGenerator;
  */
 public class BooleanTypeRestrictionGenerator implements TypeRestrictionGenerator{
 	
+	@SuppressWarnings("unused")
 	private Logger logger = Logger.getLogger(this.getClass());
 
 	public Criterion generateCriterion(Field theField,

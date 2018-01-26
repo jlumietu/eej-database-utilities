@@ -1,17 +1,11 @@
 package com.eej.utilities.database.generators.vendor.oracle;
 
-import java.lang.reflect.Field;
-
-import javax.persistence.Column;
-
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
-import com.eej.utilities.annotation.DataTableColumn;
 import com.eej.utilities.database.generators.TypeRestrictionGenerator;
 import com.eej.utilities.database.generators.vendor.mysql.MySqlDateTimeTypeRestrictionGenerator;
-import com.eej.utilities.model.SplittedStringDate;
 
 public class OracleDateTimeTypeRestrictionGenerator extends MySqlDateTimeTypeRestrictionGenerator 
 		implements TypeRestrictionGenerator {

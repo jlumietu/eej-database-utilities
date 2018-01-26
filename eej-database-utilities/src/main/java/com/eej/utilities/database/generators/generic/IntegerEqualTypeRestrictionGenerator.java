@@ -33,8 +33,8 @@ public class IntegerEqualTypeRestrictionGenerator implements TypeRestrictionGene
 		Criterion criterion = null;
 		Field pojoClassField = criteriaRootClass.getDeclaredField(columnSearchableAnnotatedColumn); 
 		if(pojoClassField != null && (pojoClassField.isAnnotationPresent(Column.class) || pojoClassField.isAnnotationPresent(Id.class))){
-			boolean matches = false;
-			boolean state = false;
+			//boolean matches = false;
+			//boolean state = false;
 			try{
 				criterion = Restrictions.eq(pojoClassField.getName(), Integer.parseInt(filter));
 			}catch(Throwable t){

@@ -30,7 +30,7 @@ public class MySqlDateTypeRestrictionGenerator implements TypeRestrictionGenerat
 		DataTableColumn dtc = theField.getAnnotation(DataTableColumn.class);
 		String filterDate = columnSearchableAnnotatedColumn;
 		logger.debug("FilterDate " + filterDate);
-		SplittedStringDate splitted = this.splitStringDate(filterDate, dtc.dateConversionPattern());
+		//SplittedStringDate splitted = this.splitStringDate(filterDate, dtc.dateConversionPattern());
 		
 		Field pojoClassField = criteriaRootClass.getDeclaredField(columnSearchableAnnotatedColumn); 
 		if(pojoClassField != null && pojoClassField.isAnnotationPresent(Column.class)){
