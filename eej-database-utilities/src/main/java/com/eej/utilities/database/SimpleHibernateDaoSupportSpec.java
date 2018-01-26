@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.eej.utilities.model.DataTablePaginationRequest;
 
 public interface SimpleHibernateDaoSupportSpec {

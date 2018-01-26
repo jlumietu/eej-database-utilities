@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.eej.utilities.model.DataTablePaginationRequest;
@@ -45,8 +45,9 @@ public class SimpleHibernate5DaoSupport extends HibernateDaoSupport implements S
 	/* (non-Javadoc)
 	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#getHibernate3Template()
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
-	public HibernateTemplate getHibernate3Template() {
+	public org.springframework.orm.hibernate3.HibernateTemplate getHibernate3Template() {
 		throw new IllegalStateException("Using Hibernate 5 so no Hibernate3Template can be retrieved");
 	}
 
@@ -61,6 +62,13 @@ public class SimpleHibernate5DaoSupport extends HibernateDaoSupport implements S
 	@Override
 	public org.springframework.orm.hibernate5.HibernateTemplate getHibernate5Template() {
 		return this.getHibernate5Template();
+	}
+
+	@Override
+	public <T> T get(Class<T> entityClass, Serializable id) throws DataAccessException {
+		return this.getHibernate5Template().get(entityClass, id);
 	}	
+	
+	
 
 }

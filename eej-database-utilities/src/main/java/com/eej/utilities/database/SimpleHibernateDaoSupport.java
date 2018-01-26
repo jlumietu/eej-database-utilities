@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -13,6 +14,7 @@ import com.eej.utilities.database.PaginationRequestFilterCriteriaHelper;
 import com.eej.utilities.database.SimpleHibernateDaoSupportEngine;
 import com.eej.utilities.model.DataTablePaginationRequest;
 
+@SuppressWarnings("deprecation")
 public class SimpleHibernateDaoSupport extends HibernateDaoSupport implements SimpleHibernateDaoSupportEngine{
 	
 	private PaginationRequestFilterCriteriaHelper paginationRequestFilterCriteriaHelper;
@@ -81,6 +83,11 @@ public class SimpleHibernateDaoSupport extends HibernateDaoSupport implements Si
 	@Override
 	public org.springframework.orm.hibernate5.HibernateTemplate getHibernate5Template() {
 		throw new IllegalStateException("Using Hibernate 3 so no Hibernate5Template can be retrieved");
+	}
+	
+	@Override
+	public <T> T get(Class<T> entityClass, Serializable id) throws DataAccessException {
+		return this.getHibernate3Template().get(entityClass, id, null);
 	}
 	
 	
