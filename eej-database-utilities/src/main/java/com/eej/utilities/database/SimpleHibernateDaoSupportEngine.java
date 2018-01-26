@@ -5,8 +5,12 @@ package com.eej.utilities.database;
 
 import java.io.Serializable;
 
+import org.hibernate.HibernateException;
+import org.hibernate.LockMode;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.dao.DataAccessException;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 /**
@@ -36,6 +40,14 @@ public interface SimpleHibernateDaoSupportEngine extends SimpleHibernateDaoSuppo
 	 * @throws DataAccessException
 	 */
 	public abstract <T> T get(Class<T> entityClass, Serializable id) throws DataAccessException;
+	
+	public abstract <T> T get(final Class<T> entityClass, final Serializable id, final LockMode lockMode);
+	
+	public abstract void saveOrUpdate(final Object entity) throws DataAccessException;
+
+	public abstract void saveOrUpdate(final String entityName, final Object entity) throws DataAccessException;
+	
+	public abstract void update(Object entity) throws DataAccessException;
 	
 
 }

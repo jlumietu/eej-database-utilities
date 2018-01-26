@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import org.hibernate.Criteria;
+import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -89,6 +90,37 @@ public class SimpleHibernateDaoSupport extends HibernateDaoSupport implements Si
 	public <T> T get(Class<T> entityClass, Serializable id) throws DataAccessException {
 		return this.getHibernate3Template().get(entityClass, id, null);
 	}
-	
+
+	/* (non-Javadoc)
+	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#get(java.lang.Class, java.io.Serializable, org.hibernate.LockMode)
+	 */
+	@Override
+	public <T> T get(Class<T> entityClass, Serializable id, LockMode lockMode) {
+		return this.getHibernate3Template().get(entityClass, id, lockMode);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#saveOrUpdate(java.lang.Object)
+	 */
+	@Override
+	public void saveOrUpdate(Object entity) throws DataAccessException {
+		this.getHibernate3Template().saveOrUpdate(entity);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#saveOrUpdate(java.lang.String, java.lang.Object)
+	 */
+	@Override
+	public void saveOrUpdate(String entityName, Object entity) throws DataAccessException {
+		this.getHibernate3Template().saveOrUpdate(entityName, entity);
+	}
+
+	/* (non-Javadoc)
+	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#update(java.lang.Object)
+	 */
+	@Override
+	public void update(Object entity) throws DataAccessException {
+		this.getHibernate3Template().update(entity);
+	}	
 	
 }

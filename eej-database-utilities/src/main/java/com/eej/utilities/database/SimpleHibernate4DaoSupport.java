@@ -6,6 +6,7 @@ package com.eej.utilities.database;
 import java.io.Serializable;
 
 import org.hibernate.Criteria;
+import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
@@ -71,7 +72,26 @@ public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements S
 	public <T> T get(Class<T> entityClass, Serializable id) throws DataAccessException {
 		return this.getHibernate4Template().get(entityClass, id);
 	}
-	
+
+	@Override
+	public <T> T get(Class<T> entityClass, Serializable id, LockMode lockMode) {
+		return this.getHibernate4Template().get(entityClass, id, lockMode);
+	}
+
+	@Override
+	public void saveOrUpdate(Object entity) throws DataAccessException {
+		this.getHibernate4Template().saveOrUpdate(entity);
+	}
+
+	@Override
+	public void saveOrUpdate(String entityName, Object entity) throws DataAccessException {
+		this.getHibernate4Template().saveOrUpdate(entityName, entity);
+	}
+
+	@Override
+	public void update(Object entity) throws DataAccessException {
+		this.getHibernate4Template().update(entity);
+	}
 	
 
 }
