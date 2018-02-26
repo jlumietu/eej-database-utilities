@@ -49,5 +49,7 @@ public interface SimpleHibernateDaoSupportEngine extends SimpleHibernateDaoSuppo
 	
 	public abstract void update(Object entity) throws DataAccessException;
 	
+	public abstract void delete(Object entity) throws DataAccessException;
+	
 
 }

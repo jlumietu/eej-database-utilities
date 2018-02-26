@@ -90,4 +90,9 @@ public class SimpleHibernate5DaoSupport extends HibernateDaoSupport implements S
 		this.getHibernate5Template().update(entity);
 	}
 
+	@Override
+	public void delete(Object entity) throws DataAccessException {
+		this.getHibernate5Template().delete(entity);
+	}
+
 }

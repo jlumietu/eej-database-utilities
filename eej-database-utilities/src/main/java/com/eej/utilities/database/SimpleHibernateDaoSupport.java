@@ -121,6 +121,11 @@ public class SimpleHibernateDaoSupport extends HibernateDaoSupport implements Si
 	@Override
 	public void update(Object entity) throws DataAccessException {
 		this.getHibernate3Template().update(entity);
+	}
+
+	@Override
+	public void delete(Object entity) throws DataAccessException {
+		this.getHibernate3Template().delete(entity);
 	}	
 	
 }

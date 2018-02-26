@@ -92,6 +92,16 @@ public class SimpleHibernate4DaoSupport extends HibernateDaoSupport implements S
 	public void update(Object entity) throws DataAccessException {
 		this.getHibernate4Template().update(entity);
 	}
+
+	/* (non-Javadoc)
+	 * @see com.eej.utilities.database.SimpleHibernateDaoSupportEngine#delete(java.lang.Object)
+	 */
+	@Override
+	public void delete(Object entity) throws DataAccessException {
+		this.getHibernate4Template().delete(entity);
+		
+	}
+
 	
 
 }
